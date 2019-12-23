@@ -1,0 +1,136 @@
+<!Doctype HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Arduino Notes</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header class='masthead'>
+		<p class='masthead-intro'>Notes on</p>
+		<h1 = class='masthead-heading'> Arduino </h1>
+	</header>
+<section class='details'>
+	<h1>ARDUINO</h1>
+	<h3><em>Arduino signals</em></h3>
+	<p> 
+		<table style="width: 100%">
+			<tr>
+				<th>Digital Signal</th>
+				<th>Voltage</th>
+				<th>V-Range</th>
+				<th>Code</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>5v</td>
+				<td>3.5v-5v</td>
+				<td style="color: red">HIGH</td>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0v</td>
+				<td>0v-3.0v</td>
+				<td style="color: blue">LOW</td>
+			</tr>
+		</table>
+
+	</p>
+ 
+
+	<h2>DIGITAL OUTPUT:</h2>
+
+	<p><strong>Is an LED an output or an input? </strong><br></p>
+
+	<p><em>An Output. The Arduino can change the state of an LED by changing the voltage of the digital pin where the LED is connected.</em></p>
+
+
+	<h2>DIGITAL INPUT:</h2>
+	<p><strong>Why is the button an input? </strong></p>
+	<p><em>The button's state is changed by the user by pressing it, not the Arduino. The Arduino reads the button's state so that it can determine whether it is pressed or not pressed.</em></p>
+
+	<h2>Analog Output</h2>
+	<h4>Pulse Width Modulation <strong>PWM</strong></h4>
+	<p><em>A range between two extremes. Instead of full intensity or no intensity of lets say an LED, whereas in a digital output of the LED will shine at full brightness or none at all, an analog signal will allow the LED to shine at fluctuating levels of brightness in-between. (i.e. Intensity = Dim, Bright..etc )</em></p>
+	<p>PWM values can be set from 0 - 255. 255 = 5V value</p>
+
+		<table style="width: 100%">
+			<tr>
+				<th>Pin (i.e. ~10)</th>
+				<th>LED</th>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>off</td>
+			</tr>
+			<tr>
+				<td>255</td>
+				<td>ON <em>brightest</em></td>
+			</tr>
+			<tr>
+				<td>50</td>
+				<td>ON <em>feint</em></td>
+			</tr>
+			<tr>
+				<td>200</td>
+				<td>ON <em>bright</em></td>
+			</tr>
+		</table>
+
+	<h3> Pontentiometers <em>(Analog Device)</em></h3>
+	<p> A device that has a resistor inside, and a knob. As you turn the knob, the middle pin conveys a different voltage depending on the position of knob. Connecting this device to one of the analog pins allows the Arduino to read the voltage in the middle pin and determine what the position of the knob is. </p> 
+	<p>The arduino takes a reading of the current voltage and converts that into a number between 0 -> 1023. </p>
+	<p>The voltage must be compatible with what the Arduino can handle, so it can only be between 0 and 5v. Anything past that will not be read, and could possibly damage the Arduino.</p>  
+	<p>Turning the knob all the way counter-clockwise will bring the device to 0, turning the knob all the way clockwise will bring the device to 10. </p>
+
+		<table style="width: 100%">
+			<tr>
+				<th>Potentiometer</th>
+				<th>Analog Pin <em>(i.e. A0)</em></th>
+			</tr>
+			<tr>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>1023</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>511</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>250</td>
+			</tr>
+		</table>
+
+		<h3> Communication </h3>
+			<p>On Uno, Nano, Mini, and Mega, pins 0 and 1 are used for communication with the computer. Connecting anything to these pins can interfere with that communication, includ	ing causing failed uploads to the board. </p> 
+			<p>You can use the Arduino environment’s built-in serial monitor to communicate with an Arduino board. Click the serial monitor button in the toolbar and select the same baud rate used in the call to begin(). </p>
+			<p>Serial communication on pins TX/RX uses TTL logic levels (5V or 3.3V depending on the board). Don’t connect these pins directly to an RS232 serial port; they operate at +/- 12V and can damage your Arduino board. </p>
+
+			<p>To use these extra serial ports to communicate with your personal computer, you will need an additional USB-to-serial adaptor, as they are not connected to the Mega’s USB-to-serial adaptor. To use them to communicate with an external TTL serial device, connect the TX pin to your device’s RX pin, the RX to your device’s TX pin, and the ground of your Mega to your device’s ground. Up to 127 devices can be connected. 
+			</p>
+
+			<h4> I2C serial protocol (TWI) </h4>
+
+			<p>I2C is a serial protocol for two-wire interface to connect low-speed devices like microcontrollers, EEPROMs, A/D and D/A converters, I/O interfaces and other similar peripherals in embedded systems. It was invented by Philips and now it is used by almost all major IC manufacturers. </p>
+
+			<img src="img/i2c.jpg" alt="TWI Serial Communication" width="700" height="400">
+			
+			<h4> SPI: Serial Peripheral Interface </h4>
+
+			<p>SPI devices communicate in full duplex mode using a master-slave architecture (alternate terminology being main and secondary) with a single master. The master device originates the frame for reading and writing. Multiple slave-devices are supported through selection with individual slave select (SS), sometimes called chip select (CS), lines.</p>
+
+			<p> With a <em>Digital</em> to <em>Analog</em> Converter (DAC), you can create analog signals from a digital machine. Such converters make it possible for devices like an MP3 or CD player to produce hi-fidelity audio. </p>
+
+			
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+1      			0
+5v				0v
+3.5v-5v 		0v-3.0v
+HIGH			LOW
+
+Arduino signals 
+
+Is an LED an output or an input?
+
+An Output. The Arduino can change the state of an LED by changing the voltage of the digital pin where the LED is connected. 
